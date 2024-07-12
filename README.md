@@ -12,7 +12,7 @@ git clone https://github.com/elizabethnewman/star-M-opt.git
 
 To setup the paths, open MATLAB, make ```star-M-opt``` the working directory, and run 
 ```
-starMOptSetup.m
+starMOptSetup
 ```
 in the MATLAB console.
 
