@@ -25,6 +25,8 @@ convergencePaperResults
 ```
 indexTrackingPaperResults
 ```
+**Note that the index tracking pulls data from Yahoo! Finance.  Occassionally, some data cannot be downloaded.  Retrying in a few minutes should resolve the issue.**
+
 *  Section 4.3: Digits
 ```
 digitsPaperResults
@@ -43,3 +45,4 @@ For the least squares, index tracking, digits, and reduced order modeling exampl
 Allowable experiment parameters are inherited from the object ```starMOptExperimentParameters.m``` and specific parameters are defined within corresponding folders.
 
 Visualization tools are included in corresponding folders. The high resolution images in the paper were made offline using Tikz and PGFPlots from the stored results. 
+
