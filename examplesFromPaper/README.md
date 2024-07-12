@@ -34,7 +34,7 @@ digitsPaperResults
 romPaperResults
 ```
 
-For the least squares, index tracking, and reduced order modeling examples, the corresponding folders have the following three MATLAB functions at a minimimum:
+For the least squares, index tracking, digits, and reduced order modeling examples, the corresponding folders have the following three MATLAB functions at a minimimum:
 ```
 <name>ExperimentParameters.m
 <name>Run.m
