@@ -1,6 +1,5 @@
-# tenOpt
-Optimal tensor-tensor products
-This repository contains code for computing optimal tensor-tensor products using the star-M product introduced in []. 
+# star-M-opt
+This repository contains code for learning optimal tensor-tensor products using the star-M product introduced in [Tensor–tensor products with invertible linear transforms](https://www.sciencedirect.com/science/article/pii/S0024379515004358). 
 
 ## Installation
 
@@ -32,7 +31,7 @@ To setup the paths, open MATLAB, make ```star-M-opt``` the working directory, an
 
 ## Introductory Materials
 
-To illustrate the functions available in this repository, we have provided some [tutorials](tutorials) formatted as .mlx live scripts.
+To illustrate the functions available in this repository, we have provided some [tutorials](https://github.com/elizabethnewman/star-M-opt/tree/main/tutorials) formatted as .mlx live scripts.
 
 ## How to cite
 
