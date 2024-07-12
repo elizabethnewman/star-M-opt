@@ -10,7 +10,11 @@ git clone https://github.com/elizabethnewman/star-M-opt.git
 
 ## Setup
 
-To setup the paths, open MATLAB, make ```star-M-opt``` the working directory, and run ```starMOptSetup.m``` from the command line.
+To setup the paths, open MATLAB, make ```star-M-opt``` the working directory, and run 
+```
+starMOptSetup.m
+```
+in the MATLAB console.
 
 
 ## Required Matlab Toolboxes
