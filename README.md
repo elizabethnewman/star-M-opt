@@ -6,12 +6,12 @@ This repository contains code for computing optimal tensor-tensor products using
 
 Clone the repository using
 ```
-git clone https://github.com/elizabethnewman/tenOpt.git
+git clone https://github.com/elizabethnewman/star-M-opt.git
 ```
 
 ## Setup
 
-To setup the paths, open MATLAB, make ```tenOpt``` the working directory, and run ```tenOptSetup.m``` from the command line.
+To setup the paths, open MATLAB, make ```star-M-opt``` the working directory, and run ```starMOptSetup.m``` from the command line.
 
 
 ## Required Matlab Toolboxes
@@ -37,9 +37,14 @@ To illustrate the functions available in this repository, we have provided some 
 ## How to cite
 
 ```
-@{
-
+@misc{newman2024optimalmatrixmimetictensoralgebras,
+      title={Optimal Matrix-Mimetic Tensor Algebras via Variable Projection}, 
+      author={Elizabeth Newman and Katherine Keegan},
+      year={2024},
+      eprint={2406.06942},
+      archivePrefix={arXiv},
+      primaryClass={math.NA},
+      url={https://arxiv.org/abs/2406.06942}, 
 }
 ```
 
-## Acknowledgements
