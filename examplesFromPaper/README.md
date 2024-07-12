@@ -25,7 +25,7 @@ convergencePaperResults
 ```
 indexTrackingPaperResults
 ```
-*Note that the index tracking pulls data from Yahoo! Finance.  Occassionally, some data cannot be downloaded.  Retrying in a few minutes should resolve the issue.*
+*Note that the index tracking script pulls historic data from Yahoo! Finance.  Occassionally, some data cannot be downloaded at the time of request.  Retrying in a few minutes should resolve the issue.*
 
 *  Section 4.3: Digits
 ```
