@@ -1,5 +1,3 @@
-## Organization
-
 The examples are from the paper
 ```console
 @misc{newman2024optimalmatrixmimetictensoralgebras,
@@ -36,14 +34,12 @@ digitsPaperResults
 romPaperResults
 ```
 
-For the least squares, index tracking, and reduced order modeling examples, the corresponding folders have the following four MATLAB functions:
+For the least squares, index tracking, and reduced order modeling examples, the corresponding folders have the following three MATLAB functions at a minimimum:
 ```
 <name>ExperimentParameters.m
 <name>Run.m
 <name>SetupData.m
 ```
-The experiment parameters are based on the object
-```
-starMOptExperimentParameters.m
-```
+Allowable experiment parameters are inherited from the object ```starMOptExperimentParameters.m``` and specific parameters are defined within corresponding folders.
+
 Visualization tools are included in corresponding folders. The high resolution images in the paper were made offline using Tikz and PGFPlots from the stored results. 
