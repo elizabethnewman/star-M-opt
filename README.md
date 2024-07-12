@@ -24,13 +24,13 @@ in the MATLAB console.
 
 ## Organization:
 
-- **optimizers:** Options for optimization algorithms (gradient descent, alternating descent).
-- **objectiveFunctions:** Options for problem-specific objective functions (least squares, low-rank approximation) to pass to optimizer.
-- **linesearch:** Options for line search algorithms for optimizer.
-- **products:** Functions for tensor-tensor (star-M, facewise) and tensor-matrix (mode-k) products.
-- **examples:** Examples applying optimal tensor-tensor products to various applications on small datasets.
-- **unitTests:** unit tests for other functions in repository.
+- **optimizers:** options for optimization algorithms (gradient descent, alternating descent).
+- **objectiveFunctions:** options for problem-specific objective functions (least squares, low-rank approximation) to pass to optimizer.
+- **products:** functions for tensor-tensor (star-M, facewise) and tensor-matrix (mode-k) products.
+- **tensorSVD:** functions to compute the tensor SVD and corresponding Jacobians.
+- **examples:** examples applying optimal tensor-tensor products to various applications.
 - **utils:** additional tools for tensor operations (folding/unfolding, Frobenius norm, transpose).
+- **unitTests:** unit tests for other functions in repository.  To test, run ```starMOptUnitTests``` in a MATLAB console.
 - **tutorials:** introductory tutorials to demonstrate code functions.
 
 ## Introductory Materials
