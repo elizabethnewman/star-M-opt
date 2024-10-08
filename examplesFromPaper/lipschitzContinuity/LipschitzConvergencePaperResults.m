@@ -10,7 +10,7 @@ dirName    = 'LipschitzConvergenceResults/';
 if ~exist(dirName,'dir'), mkdir(dirName); end
 cd(dirName)
 
-subDirName = [date,'/'];
+subDirName = ['./',datestr((datetime('today'))),'/'];
 if ~exist(subDirName,'dir'), mkdir(subDirName); end
 cd(subDirName)
 

@@ -7,3 +7,7 @@ tmpPlay/
 /examplesFromPaper/flowers/cifar10
 *.asv
 *.mat
+/examplesFromPaper/digits/digitsResults
+/examplesFromPaper/indexTracking/indexTrackingResults
+/examplesFromPaper/leastSquares/lsResults
+/examplesFromPaper/lipschitzContinuity/LipschitzConvergenceResults

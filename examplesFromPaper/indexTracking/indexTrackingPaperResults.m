@@ -115,7 +115,7 @@ end
 
 %% create backtesting plots
 
-subDirname = [d,irName,results.options.filename,'/','backtesting/'];
+subDirname = [dirName,results.options.filename,'/','backtesting/'];
 if ~exist(subDirname,'dir'), mkdir(subDirname); end
 
 fig = indexTrackingPlotBacktesting(results, results.options.initDateTrain, results.options.endDateTrain);
