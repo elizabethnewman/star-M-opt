@@ -95,7 +95,8 @@ classdef objFctnTikhonovLeastSquaresVarPro < objFctn
             BHat = modeProduct(obj.B,M);
             
             % add regularization
-            AHatL = cat(1,beta * AHat,obj.alpha * eye(n2) .* ones(1,1,n3));
+            I     = eye(n2) .* ones(1,1,n3);
+            AHatL = cat(1,beta * AHat,sqrt(obj.alpha) * I);
             BHAtZ = cat(1,beta * BHat,zeros(n2,size(obj.B,2),n3));
 
             % solve
@@ -109,5 +110,4 @@ classdef objFctnTikhonovLeastSquaresVarPro < objFctn
 
 
 end
-
 

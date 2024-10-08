@@ -11,6 +11,7 @@ if nargin == 0, runMinimalExample; return; end
 % get sizes
 m  = size(U,1);
 n  = size(V,1);
+k  = size(U,2);
 szA = size(U);
 
 overdeterminedFlag = (m > n);
@@ -27,7 +28,7 @@ end
 
 % Note: think about how to handle situations with equal singular values
 s      = facewiseDiag(S);
-szS    = [1,m,szA(3:end)];
+szS    = [1,k,szA(3:end)];
 s2     = s.^2;
 F      = -s2 + tran(s2);
 idx    = (F ~= 0);  % avoid small singular values
@@ -53,7 +54,7 @@ JacU.AT = @(y) facewise(tmp1(y) + tmp2(y),tran(V));
 JacS.inputSize  = [m,n,szA(3:end)];
 JacS.outputSize = size(S); 
 JacS.A  = @(x) eye(size(s2,1)) .* dP(x);
-JacS.AT = @(y) facewise(facewise(U,(eye(m) .* y)),tran(V));
+JacS.AT = @(y) facewise(facewise(U,(eye(k) .* y)),tran(V));
 
 VVT = facewise(V,tran(V));
 JacV.inputSize  = [m,n,szA(3:end)];
@@ -62,7 +63,7 @@ JacV.outputSize = size(V);
 JacV.A  = @(x) facewise(V,dD(x)) + facewise(eye(n) - VVT,facewise(tran(x),U ./ reshape(s,szS)));
 
 tmp1 = @(y) facewise(facewise(S,(F .* (facewise(tran(V),y) - facewise(tran(y),V)))),tran(V));
-tmp2 = @(y) facewise(tran(y ./ reshape(s,[1,m,szA(3:end)])),eye(n) - VVT);
+tmp2 = @(y) facewise(tran(y ./ reshape(s,[1,k,szA(3:end)])),eye(n) - VVT);
 JacV.AT = @(y) facewise(U,tmp1(y) + tmp2(y));
 
 

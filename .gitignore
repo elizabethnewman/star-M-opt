@@ -1,3 +1,9 @@
 
 .DS_Store
 tmpPlay/
+/examplesFromPaper/flowers/flowersResults
+/examplesFromPaper/rom/romResults
+/examplesFromPaper/lipschitzConstant/resultsLipschitz
+/examplesFromPaper/flowers/cifar10
+*.asv
+*.mat

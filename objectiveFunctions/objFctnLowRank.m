@@ -34,14 +34,13 @@ classdef objFctnLowRank < objFctn
             zeroCut     = @(x) x(1:obj.k,1:obj.k,:);
 
             if doGrad
-                % [U,S,V,JacU,JacS,JacV,JacMU,JacMS,JacMV] = tSVDM(obj.A,M,obj.k);
+                % [U2,S2,V2,JacU2,JacS2,JacV2,JacMU2,JacMS2,JacMV2] = tSVDM(obj.A,M,obj.k);
                 [AHat,~,JacMA1]     = modeProduct(obj.A,M);
-                [U,S,V]             = facewiseSVD(AHat);
+
+                % compute facewise SVD
+                [U,S,V]             = facewiseSVD(AHat,obj.k);
                 [JacU2,JacS2,JacV2] = facewiseSVDJacobian(U,S,V);
 
-                U = zeroColCut(U);
-                S = zeroCut(S);
-                V = zeroColCut(V);
 
                 [B,JacU3,JacS3]     = facewise(U,S);
                 [AkHat,JacB,JacV3]  = facewise(B,tran(V));
@@ -73,29 +72,18 @@ classdef objFctnLowRank < objFctn
                 dU3     = JacU3.AT(dB3);
                 dS3     = JacS3.AT(dB3);
 
-
-                % dU2 = facewise(facewise(dU3,V),S);
-                dfU = JacU2.AT(zeroColPad(dU3));
-               
-                dfS = JacS2.AT(zeroPad(dS3));
-                dfV = JacV2.AT(zeroColPad(dV3));
+                
+                % backwards through SVD
+                dfU = JacU2.AT(dU3);
+                dfS = JacS2.AT(dS3);
+                dfV = JacV2.AT(dV3);
 
                 dfAkHat = dfU + dfS + dfV;
 
-                % dfAk = JacA1.AT(dfAkHat);
+                
                 dfM  = JacMA1.AT(dfAkHat);
                 dfdM  = dfM + dfMinv;
                 
-%                 dU  = mprod(mprod(dR,V,M),tran(S),M);
-%                 dfU = JacU.AT(dU);
-% 
-%                 dS  = mprod(mprod(tran(U),dR,M),V,M);
-%                 dfS = JacS.AT(dS);
-%                 
-%                 dV  = mprod(mprod(tran(dR),U,M),S,M);
-%                 dfV = JacV.AT(dV);
-%
-%                dfdM = dfU + dfS + dfV;
             end
 
         end

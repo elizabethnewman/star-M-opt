@@ -40,6 +40,9 @@ SP500.names                   = fields(SP500);
 SP500.index                   = {'^GSPC'};
 
 %% gather data
+
+% CHANGES (Oct. 3, 2024): new data access fields
+
 A = [];
 d = [];
 Aj = [];
@@ -49,13 +52,15 @@ for i = 1:length(sectors.names)
         yahoo_raw = getMarketDataViaYahoo(mySector{j}, initDate, endDate);
         
         if isempty(d)
-            d = yahoo_raw.Date; 
+            % d = yahoo_raw.Date; 
+            d = yahoo_raw.chart.result.timestamp;
             idx = 1:numel(d);
         else
             [d,idx] = updateDate(d,yahoo_raw);
             Aj = Aj(idx,:);
         end
-        tmp = yahoo_raw.AdjClose;
+        % tmp = yahoo_raw.AdjClose;
+        tmp = yahoo_raw.chart.result.indicators.adjclose.adjclose;
         if numel(tmp) > numel(idx), tmp = tmp(idx); end
         Aj        = cat(2,Aj,tmp);
     end
@@ -69,7 +74,8 @@ end
 yahoo_raw   = getMarketDataViaYahoo(SP500.index{1}, initDate, endDate);
 [d,idx] = updateDate(d,yahoo_raw);
 A       = A(idx,:,:);
-BMat    = yahoo_raw.AdjClose(idx);
+% BMat    = yahoo_raw.AdjClose(idx);
+BMat = yahoo_raw.chart.result.indicators.adjclose.adjclose(idx);
 
 % right-hand side (per sector
 B = zeros(size(A,1),1,0);
@@ -80,7 +86,8 @@ for i = 1:length(SP500.names)
     % update date info
     [d,idx] = updateDate(d,yahoo_raw);
     
-    tmp = yahoo_raw.AdjClose;
+    % tmp = yahoo_raw.AdjClose;
+    tmp = yahoo_raw.chart.result.indicators.adjclose.adjclose;
     if numel(tmp) > numel(idx), tmp = tmp(idx); end
 
     B = cat(3,B(idx,:,:),tmp);
@@ -118,7 +125,8 @@ end
 
 function[d,idx] = updateDate(d,yahoo_raw)
 
-dNew = intersect(d,yahoo_raw.Date);
+% dNew = intersect(d,yahoo_raw.Date);
+dNew = intersect(d, yahoo_raw.chart.result.timestamp);
 idx  = datefind(dNew,d);
 d    = dNew;
 

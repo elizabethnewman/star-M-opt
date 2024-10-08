@@ -31,7 +31,7 @@ function testobjFctnTikhonovLeastSquaresM(testCase)
             idxOut = 3;
             fctnAnonM = objFctnAnonymous(fctn,[],idxIn,idxOut,X);
         
-            CheckObjectiveFunction(fctnAnonM, M)
+            CheckObjectiveFunction(fctnAnonM, M,'verbose',true)
         end 
     end
 end
@@ -66,21 +66,23 @@ end
 
 
 function testobjFctnTikhonovLeastSquaresVarPro(testCase)
-
+    count = 1;
     for orthoFlag = [0,1]
         for avgFlag = [0,1]
             A = randn(randi([11,20]), randi([1,10]), randi([2,10]));
             B = randn(size(A,1), randi([1,10]), size(A,3));
             
+            
             [M,~] = qr(randn(size(A,3)));
-
+            
 
             lambda = rand(1);
             alpha  = rand(1);
             options = {'orthoFlag', orthoFlag, 'avgFlag', avgFlag};
             fctn = objFctnTikhonovLeastSquaresVarPro(A,B,lambda,alpha,options{:});
-
-            CheckObjectiveFunction(fctn,M)
+            disp(count)
+            CheckObjectiveFunction(fctn,M,'verbose',true)
+            count = count + 1;
         end 
     end
 end
