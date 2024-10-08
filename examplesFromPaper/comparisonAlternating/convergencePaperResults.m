@@ -12,7 +12,7 @@ dirName    = 'convergenceResults/';
 if ~exist(dirName,'dir'), mkdir(dirName); end
 cd(dirName)
 
-subDirName = [date,'/'];
+subDirName = ['./',date,'/'];
 if ~exist(subDirName,'dir'), mkdir(subDirName); end
 cd(subDirName)
 
